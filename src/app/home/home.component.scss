@@ -7,9 +7,11 @@
   .title {
     @include title();
   }
+
   .subtitle {
     @include subtitle();
   }
+
   @include text();
 
   .line-item {
@@ -23,6 +25,7 @@
       @include flex-row();
       @include flex-align(flex-start, center);
       gap: var(--small-gap);
+      cursor: pointer;
     }
 
     .stop-item {
@@ -32,9 +35,11 @@
       @include flex-align(flex-start, center);
       gap: var(--small-gap);
       border-radius: var(--border-radius);
+
       &:hover {
         background: var(--highlight-color);
       }
+
       mat-icon {
         width: 14px;
         height: 14px;

@@ -24,4 +24,8 @@ export class HomeComponent {
   selectStop(selectedStopId: string): void {
     this.store.dispatch(TransitLinesActions.SelectStop({ selectedStopId }))
   }
+
+  toggleExpanded(line: TransitLine) {
+    line.isExpanded = !line.isExpanded;
+  }
 }

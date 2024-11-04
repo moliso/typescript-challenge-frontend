@@ -14,4 +14,5 @@ export interface TransitStop {
 export interface TransitLine {
   id: string
   stops: TransitStop[]
+  isExpanded?: boolean
 }

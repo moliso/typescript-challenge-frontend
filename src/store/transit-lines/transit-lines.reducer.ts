@@ -6,12 +6,14 @@ import { TransitLinesActions } from './transit-lines.actions'
 export const TRANSIT_LINES_KEY = 'transit-lines'
 
 export interface TransitLinesState extends EntityState<TransitLine> {
-  selectedStopId: string
+  selectedStopId: string,
+  isExpanded: boolean
 }
 
 export const transitLinesAdapter = createEntityAdapter<TransitLine>()
 export const transitLinesInitialState: TransitLinesState = transitLinesAdapter.getInitialState({
   selectedStopId: null,
+  isExpanded: false
 })
 
 const reducer = createReducer(
