@@ -43,7 +43,17 @@ export namespace fromTransitLines {
 
   // Issue https://github.com/targomo/typescript-challenge-frontend/issues/1
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  export const stopsLinesGeoJson = createSelector(selectAll, (lines) => {
-    return null
-  })
+  export const stopsLinesGeoJson = createSelector(selectAll, (lines) => ({
+    type: 'geojson',
+    data: {
+      type: 'FeatureCollection',
+      features: lines.map((line) => ({
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: line.stops.map(stop => { return [stop.lng, stop.lat] })
+        },
+      }))
+    },
+  }) as GeoJSONSourceSpecification)
 }
